@@ -4,18 +4,22 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.exceptions import NotFound
 from rest_framework import generics
+from rest_framework import viewsets
 
 from app.models import Todo
 from app.serializers import TodoSerializer
 
-class TodoListAndCreate(generics.ListCreateAPIView):
+class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
-class TodoDetailChangeAndDelete(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+# class TodoListAndCreate(generics.ListCreateAPIView):
+#     queryset = Todo.objects.all()
+#     serializer_class = TodoSerializer
 
+# class TodoDetailChangeAndDelete(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Todo.objects.all()
+#     serializer_class = TodoSerializer
 
 # class TodoListAndCreate(APIView):
 #     def get(self, request):
